@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using RealWorld.ServiceExtensions;
+using AutoMapper;
 
 namespace RealWorld
 {
@@ -31,6 +32,7 @@ namespace RealWorld
 			services.ConfigureCors();
 			services.ConfigureSqlContext(Configuration);
 			services.ConfigureRepositoryManager();
+			services.AddAutoMapper(typeof(Startup));
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{

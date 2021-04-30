@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using Contracts;
 using Entities.DTO;
 using Entities.Models;
@@ -14,10 +15,12 @@ namespace RealWorld.Controllers
 	public class ArticlesController : ControllerBase
 	{
 		private IRepositoryManager _repo;
+		private IMapper _mapper;
 
-		public ArticlesController(IRepositoryManager repo)
+		public ArticlesController(IRepositoryManager repo, IMapper mapper)
 		{
 			_repo = repo;
+			_mapper = mapper;
 		}
 
 		[HttpGet]
@@ -25,7 +28,9 @@ namespace RealWorld.Controllers
 		{
 			var articles = _repo.Article.GetAllArticles(trackChanges: false);
 
-			return Ok(new { articles });
+			var articlesDto = _mapper.Map<IEnumerable<ArticleDTO>>(articles);
+
+			return Ok(new { articles = articlesDto });
 
 		}
 	}
