@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models
 {
@@ -14,7 +15,10 @@ namespace Entities.Models
 
 		public string[] TagList { get; set; }
 
-		// public int Author { get; set; }
+		[ForeignKey(nameof(Author))]
+		public Guid AuthorId { get; set; }
+		public Author Author { get; set; }
+
 		// public bool Favorited { get; set; }
 		// public int FavoritesCount { get; set; }
 	}

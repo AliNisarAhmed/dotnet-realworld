@@ -20,6 +20,7 @@ namespace Entities.Configuration
 					Description = "Article 1 description",
 					Slug = "article / 1",
 					TagList = new[] { "Tag1", "Tag2" },
+					AuthorId = new Guid("c9d4c012-49b6-410c-bc78-2d54a9991870")
 				},
 				new Article
 				{
@@ -31,6 +32,7 @@ namespace Entities.Configuration
 					Description = "Article 2 description",
 					Slug = "article / 2",
 					TagList = new[] { "Tag3", "Tag4" },
+					AuthorId = new Guid("c9d4c013-49b6-410c-bc78-2d54a9991870")
 				}
 			);
 		}

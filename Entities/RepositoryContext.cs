@@ -13,9 +13,11 @@ namespace Entities
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+			modelBuilder.ApplyConfiguration(new AuthorConfiguration());
 			modelBuilder.ApplyConfiguration(new ArticleConfiguration());
 		}
 
-		public DbSet<Article> Articles { get; set; }
+		public DbSet<Article> Article { get; set; }
+		public DbSet<Author> Author { get; set; }
 	}
 }

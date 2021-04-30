@@ -13,6 +13,10 @@ namespace RealWorld
 					opt => opt.MapFrom(art => art.CreatedAt.ToString("o")))
 			.ForMember(c => c.UpdatedAt,
 					opt => opt.MapFrom(art => art.UpdatedAt.ToString("o")));
+
+
+			CreateMap<Author, AuthorDTO>();
+
 		}
 	}
 }
